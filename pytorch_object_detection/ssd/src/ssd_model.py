@@ -14,9 +14,9 @@ class Backbone(nn.Module):
         if pretrain_path is not None:
             net.load_state_dict(torch.load(pretrain_path))
 
-        self.feature_extractor = nn.Sequential(*list(net.children())[:7])
+        self.feature_extractor = nn.Sequential(*list(net.children())[:7])   # 获取前7层模型，并从新组建新的模型层
 
-        conv4_block1 = self.feature_extractor[-1][0]
+        conv4_block1 = self.feature_extractor[-1][0]    # 通过索引方式获得想要的层
 
         # 修改conv4_block1的步距，从2->1
         conv4_block1.conv1.stride = (1, 1)
