@@ -8,9 +8,9 @@ if not os.path.exists(files_path):
     exit(1)
 val_rate = 0.5
 
-files_name = sorted([file.split(".")[0] for file in os.listdir(files_path)])
+files_name = sorted([file.split(".")[0] for file in os.listdir(files_path)])# os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。
 files_num = len(files_name)
-val_index = random.sample(range(0, files_num), k=int(files_num*val_rate))
+val_index = random.sample(range(0, files_num), k=int(files_num*val_rate))# 从指定序列中随机获取指定长度的片断
 train_files = []
 val_files = []
 for index, file_name in enumerate(files_name):
@@ -22,7 +22,7 @@ for index, file_name in enumerate(files_name):
 try:
     train_f = open("train.txt", "x")
     eval_f = open("val.txt", "x")
-    train_f.write("\n".join(train_files))
+    train_f.write("\n".join(train_files))# 用于将序列中的元素以指定的字符连接生成一个新的字符串。 str.join(sequence) str:指定字符；sequence：要连接的元素序列
     eval_f.write("\n".join(val_files))
 except FileExistsError as e:
     print(e)
