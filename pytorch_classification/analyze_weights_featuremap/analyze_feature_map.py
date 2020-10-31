@@ -43,7 +43,7 @@ for feature_map in out_put:
     # show top 12 feature maps
     plt.figure()
     for i in range(12):
-        ax = plt.subplot(3, 4, i+1)
+        ax = plt.subplot(3, 4, i+1) # 　numbRow是plot图的行数；numbCol是plot图的列数；plotNum是指第几行第几列的第几幅图
         # [H, W, C]
         plt.imshow(im[:, :, i], cmap='gray')
     plt.show()
